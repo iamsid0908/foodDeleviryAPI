@@ -4,7 +4,7 @@ const UserModel=require(path.join(__dirname,"../model/user.model"))
 
 const varifyToken=(req,res,next)=>{
 
-    if(req.headers && req.headers.authorization && req.heasers.authorization.split(' ')[0]=='JWT'){
+    if(req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0]=='JWT'){
         jwt.verify(req.headers.authorization.split(' ')[1],process.env.SECRET_KEY,function(err,payload){
             console.log(payload)
             if(err){
